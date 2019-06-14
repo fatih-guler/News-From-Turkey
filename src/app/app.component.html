@@ -1,21 +1,39 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- JJ -->
+<div id="contentBoxApp">
+    <div id="GridCtrl">  
+      <div class="toolbar">
+        <div class="container">
+          <div class="toolbar-section">
+            <span class="logo toolbar-item" (click)=getNews()><i class="fa fa-picture-o"></i>Türkiyeden Haberler</span>
+          </div><!-- /.toolbar-section -->
+          <div class="toolbar-section">
+            
+            <div class="toolbar-item form-field"> 
+              <input type="button" style='height:100%' (click)="getNewsByCategory('science')" value="Bilim"/>
+              <input type="button" style='height:100%' (click)="getNewsByCategory('business')" value="İş"/>
+              <input type="button" style='height:100%' (click)="getNewsByCategory('sports')" value="Spor"/>
+              <input type="button" style='height:100%' (click)="getNewsByCategory('technology')" value="Teknoloji"/>
+              <input type="button" style='height:100%' (click)="getNewsByCategory('health')" value="Sağlık"/>
 
-<router-outlet></router-outlet>
+            </div>
+          </div><!-- /.toolbar-section -->
+        </div><!-- /.container -->
+      </div><!-- /.toolbar -->
+      <div class="container dynamic-grid">
+        <article class="grid-item content-box" *ngFor="let news of data">
+          <div class="inner">
+          <img class="content-box-thumb"src="{{ news.urlToImage }}" alt="tech image" />
+          <h1 class="content-box-header">
+           <a href='{{news.url}}'> {{ news.title }} </a>
+          </h1>
+          <p class="content-box-blurb">
+            {{ news.description }}
+          </p>
+          <a class="readmore-link" href="{{news.url}}">Tümünü Oku</a>
+          </div>
+        </article><!-- /.content-box -->
+  
+      </div><!-- /.dynamic-grid -->
+    </div><!-- /#GridCtrl -->
+  </div><!-- /#contentBoxApp -->
+  <!-- SDG -->
